@@ -5,6 +5,20 @@
  * To use home rows - &hm LSHFT F
  */
 
+#мояхуета
+
+void oled_task_user(void) {
+    render_luna_animation();
+}
+
+void render_luna_animation() {
+    static uint8_t current_frame = 0;
+    const uint8_t* frame = (current_frame % 2 == 0) ? luna_frame1 : luna_frame2;
+    oled_write_raw(frame, sizeof(luna_frame1));
+    current_frame++;
+}
+
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
