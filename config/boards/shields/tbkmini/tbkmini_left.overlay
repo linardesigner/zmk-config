@@ -17,3 +17,16 @@
 		, <&pro_micro_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		;
 };
+
+// Настройка шины I2C для дисплея
+&i2c1 {
+    status = "okay";
+    ssd1306: ssd1306@3c {
+        compatible = "ssd1306";
+        reg = <0x3c>;
+        label = "SSD1306";
+        height = <32>;
+        width = <128>;
+        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+    };
+};
